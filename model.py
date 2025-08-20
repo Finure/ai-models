@@ -22,7 +22,7 @@ RANDOM_STATE = 42
 DATA_BUCKET = os.environ.get("BUCKET")
 DATASET = os.environ.get("OUTFILE")  
 DATA_PATH = os.environ.get("DATA_PATH", "dataset.csv") 
-MODEL_PATH = "card_approval_model.joblib"
+MODEL_PATH = "models/model.joblib"
 MODEL_BUCKET = "finure-models"
 MODEL_GCS_URI = f"gs://{MODEL_BUCKET}/{MODEL_PATH}"
 
