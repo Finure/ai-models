@@ -22,9 +22,10 @@ RANDOM_STATE = 42
 DATA_BUCKET = os.environ.get("BUCKET")
 DATASET = os.environ.get("OUTFILE")  
 DATA_PATH = os.environ.get("DATA_PATH", "dataset.csv") 
-MODEL_PATH = "models/model.joblib"
+MODEL_PATH = "model.joblib"
+MODEL_UPLOAD_PATH = "models/model.joblib"
 MODEL_BUCKET = "finure-models"
-MODEL_GCS_URI = f"gs://{MODEL_BUCKET}/{MODEL_PATH}"
+MODEL_GCS_URI = f"gs://{MODEL_BUCKET}/{MODEL_UPLOAD_PATH}"
 
 if DATA_BUCKET and DATASET:
     uri = f"gs://{DATA_BUCKET}/{DATASET}"
@@ -161,7 +162,7 @@ def main() -> int:
     try:
         client = storage.Client()  
         bucket = client.bucket(MODEL_BUCKET)
-        blob = bucket.blob(MODEL_PATH)
+        blob = bucket.blob(MODEL_UPLOAD_PATH)
         blob.upload_from_filename(MODEL_PATH, content_type="application/octet-stream")
         print(f"Model uploaded to: {MODEL_GCS_URI}")
     except Exception as e:
