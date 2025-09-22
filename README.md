@@ -42,6 +42,7 @@ Classification Report:
 ## 4. Prerequisites
 - Kubernetes cluster bootstrapped ([Finure Terraform](https://github.com/finure/terraform))
 - Infrastructure setup via Flux ([Finure Kubernetes](https://github.com/finure/kubernetes))
+
 If running locally for development/testing:
 - Google Cloud Storage bucket and credentials (optional)
 - Python 3.12+
